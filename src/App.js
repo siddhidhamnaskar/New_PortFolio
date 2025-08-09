@@ -1,17 +1,92 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import emailjs from '@emailjs/browser';
 import deviceDashboard from './assets/device-dashboard.png';
 import elderCareDashboard from './assets/elder-care-dashboard.png';
 
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero');
+  const [notification, setNotification] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Smooth scrolling for navigation
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId).scrollIntoView({
       behavior: 'smooth'
     });
+  };
+
+  // Show notification
+  const showNotification = (message, type = 'success') => {
+    setNotification({ message, type });
+    setTimeout(() => {
+      setNotification(null);
+    }, 5000); // Hide after 5 seconds
+  };
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Handle form submission
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // EmailJS configuration
+      const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID; // Replace with your EmailJS service ID
+      const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID; // Replace with your EmailJS template ID
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY; // Replace with your EmailJS public key
+
+      // Prepare template parameters
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'siddhidhamnaskar@gmail.com', // Your email where you want to receive messages
+      };
+
+      // Send email using EmailJS
+    
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      
+      // Success notification
+      showNotification('Thank you! Your message has been sent successfully. I\'ll get back to you soon!', 'success');
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      
+      // Fallback: Open email client as backup
+      const mailtoLink = `mailto:siddhidhamnaskar@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`)}`;
+      window.open(mailtoLink);
+      
+      // Error notification with fallback info
+      showNotification('Opening your email client as backup. Please send the email from there, or try again later.', 'error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Track active section for navigation highlighting
@@ -37,6 +112,24 @@ function App() {
 
   return (
     <div className="App">
+      {/* Notification */}
+      {notification && (
+        <div className={`notification ${notification.type}`}>
+          <div className="notification-content">
+            <span className="notification-icon">
+              {notification.type === 'success' ? '✅' : '❌'}
+            </span>
+            <p>{notification.message}</p>
+            <button 
+              className="notification-close"
+              onClick={() => setNotification(null)}
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="navbar">
         <div className="nav-container">
@@ -347,20 +440,61 @@ in global companies building AI-driven or real-time platforms
                 </div>
               </div>
             </div>
-            <form className="contact-form">
+            <form className="contact-form" onSubmit={handleFormSubmit}>
               <div className="form-group">
-                <input type="text" placeholder="Your Name" required />
+                <input 
+                  type="text" 
+                  name="name"
+                  placeholder="Your Name" 
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required 
+                />
               </div>
               <div className="form-group">
-                <input type="email" placeholder="Your Email" required />
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="Your Email" 
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required 
+                />
               </div>
               <div className="form-group">
-                <input type="text" placeholder="Subject" required />
+                <input 
+                  type="text" 
+                  name="subject"
+                  placeholder="Subject" 
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required 
+                />
               </div>
               <div className="form-group">
-                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <textarea 
+                  name="message"
+                  placeholder="Your Message" 
+                  rows="5" 
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                ></textarea>
               </div>
-              <button type="submit" className="btn-primary">Send Message</button>
+              <button 
+                type="submit" 
+                className="btn-primary"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <span className="spinner"></span>
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
+              </button>
             </form>
           </div>
         </div>
@@ -371,7 +505,7 @@ in global companies building AI-driven or real-time platforms
         <div className="container">
           <div className="footer-content">
             <div className="footer-left">
-              <p>&copy; 2024 John Developer. All rights reserved.</p>
+              <p>&copy; 2025 Siddhi Dhamnaskar. All rights reserved.</p>
             </div>
             <div className="footer-right">
               <div className="social-links">
