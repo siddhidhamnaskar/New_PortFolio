@@ -315,7 +315,8 @@ in global companies building AI-driven or real-time platforms
           <h2 className="section-title">Featured Projects</h2>
           <div className="projects-grid">
             <div className="project-card">
-              <div className="project-image iot-bg">
+              <div className="project-image">
+                <img src={deviceDashboard} alt="IoT Device Monitoring Dashboard" className="project-screenshot" />
                 <div className="project-overlay">
                   <div className="project-icon">
                     <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -346,7 +347,8 @@ in global companies building AI-driven or real-time platforms
             </div>
 
             <div className="project-card">
-              <div className="project-image eldercare-bg">
+              <div className="project-image">
+                <img src={elderCareDashboard} alt="Elder Care Management System" className="project-screenshot" />
                 <div className="project-overlay">
                   <div className="project-icon">
                     <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -377,7 +379,7 @@ in global companies building AI-driven or real-time platforms
               </div>
             </div>
 
-            <div className="project-card">
+            {/* <div className="project-card">
               <div className="project-image analytics-bg">
                 <div className="project-overlay">
                   <div className="project-icon">
@@ -403,7 +405,7 @@ in global companies building AI-driven or real-time platforms
                   <a href="#" className="btn-outline">GitHub</a>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

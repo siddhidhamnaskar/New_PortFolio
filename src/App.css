@@ -444,6 +444,17 @@
   overflow: hidden;
 }
 
+.project-screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-screenshot {
+  transform: scale(1.05);
+}
+
 /* Project Background Gradients */
 .project-image.iot-bg {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -473,7 +484,18 @@
   text-align: center;
   color: white;
   z-index: 2;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
 }
 
 .project-icon {
