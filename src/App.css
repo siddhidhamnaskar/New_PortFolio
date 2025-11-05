@@ -909,7 +909,21 @@
     grid-template-columns: 1fr;
   }
 
-  /* Personal Projects responsive - already vertical on mobile */
+  /* Personal Projects responsive */
+  #personal-projects .project-card {
+    flex-direction: column;
+    height: auto;
+    max-width: 500px;
+  }
+
+  #personal-projects .project-image {
+    flex: 0 0 200px;
+    width: 100%;
+  }
+
+  #personal-projects .project-content {
+    padding: 1rem;
+  }
 
   .contact-content {
     grid-template-columns: 1fr;
