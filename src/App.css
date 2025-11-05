@@ -422,12 +422,55 @@
   gap: 2rem;
 }
 
+/* Personal Projects Section - Vertical Layout */
+#personal-projects .projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  margin: 0 auto;
+  
+}
+
+#personal-projects .project-card {
+  width: 100%;
+
+  
+}
+
 .project-card {
   background: white;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+ 
+  
+}
+
+/* Personal Projects Card Layout - Horizontal */
+#personal-projects .project-card {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+}
+
+#personal-projects .project-image {
+  width: 100%;
+  flex: 0 0 500px;
+  height: 100%;
+  object-fit: cover;
+   
+}
+
+#personal-projects .project-content {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+   
+  
 }
 
 .project-card:hover {
@@ -865,6 +908,8 @@
   .projects-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Personal Projects responsive - already vertical on mobile */
 
   .contact-content {
     grid-template-columns: 1fr;

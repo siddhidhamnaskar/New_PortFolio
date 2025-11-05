@@ -92,7 +92,7 @@ function App() {
   // Track active section for navigation highlighting
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'skills', 'projects', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'projects', 'personal-projects', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -141,6 +141,7 @@ function App() {
             <li><a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={() => scrollToSection('about')}>About</a></li>
             <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => scrollToSection('skills')}>Skills</a></li>
             <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={() => scrollToSection('projects')}>Projects</a></li>
+            <li><a href="#personal-projects" className={activeSection === 'personal-projects' ? 'active' : ''} onClick={() => scrollToSection('personal-projects')}>Personal Projects</a></li>
             <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={() => scrollToSection('contact')}>Contact</a></li>
           </ul>
         </div>
@@ -406,6 +407,46 @@ in global companies building AI-driven or real-time platforms
                 </div>
               </div>
             </div> */}
+          </div>
+        </div>
+      </section>
+
+      {/* Personal Projects Section */}
+      <section id="personal-projects" className="projects">
+        <div className="container">
+          <h2 className="section-title">Personal Projects</h2>
+          <div className="projects-grid">
+            <div className="project-card">
+              <div className="project-image">
+                
+                  <div className="project-icon">
+                     <img width="100%" src="https://res.cloudinary.com/dguer2ngx/image/upload/v1762306415/Images/04.11.2025_08.26.29_REC_bdeuhc.png"  alt="MyShop"/>
+                  </div>
+                  
+              </div>
+              <div className="project-content">
+                <h3>E-commerce Site</h3>
+                <p>This project is a simple full-stack web application built to practice using Next.js, TypeScript, and Prisma ORM. The goal was to understand how to connect a Next.js frontend with a database using Prisma and manage data through API routes.</p>
+                <div className="project-tech">
+                  <span>Next.js 14</span>
+                  <span>TypeScript</span>
+                  <span>Tailwind CSS</span>
+                  <span>Shadcn/UI</span>
+                  <span>Prisma</span>
+                  <span>MongoDB</span>
+                  <span>Git</span>
+                </div>
+                <div className="project-links">
+                  <a href="https://ecommerce-site-three-psi.vercel.app/" className="btn-outline">View Live Site</a>
+                  <a href="https://github.com/siddhidhamnaskar/Ecommerce-Site" className="btn-outline">GitHub</a>
+                  <a href="https://res.cloudinary.com/dguer2ngx/video/upload/v1762306610/Videos/04.11.2025_08.10.46_REC_hcgudr.mp4" className="btn-outline">Demo Video</a>
+                
+                </div>
+              </div>
+            </div>
+
+         
+  
           </div>
         </div>
       </section>
