@@ -11,6 +11,16 @@ const PersonalProjects = () => {
       demoLink: 'https://ecommerce-site-three-psi.vercel.app/',
       githubLink: 'https://github.com/siddhidhamnaskar/Ecommerce-Site',
       videoLink: 'https://res.cloudinary.com/dguer2ngx/video/upload/v1762306610/Videos/04.11.2025_08.10.46_REC_hcgudr.mp4'
+    },
+     {
+      id: 1,
+      title: 'Full Stack Blog Application',
+      description: 'A full-stack Blog Web App built using React.Js, Node.js, Express, MongoDB, and EJS. It supports creating, editing, viewing, and deleting blog posts. A simple CRUD project demonstrating frontend-backend integration.',
+      tech: ['React.js', 'Node.js', 'Material Ui', 'Express.js','MongoDB','Cloudinary','JWT','Git'],
+      image: 'https://res.cloudinary.com/dguer2ngx/image/upload/v1763358955/Images/17.11.2025_11.19.26_REC_utzdiy.png',
+      demoLink: 'https://blog-web-app-vert.vercel.app/',
+      githubLink: 'https://github.com/siddhidhamnaskar/Blog_web_app',
+      // videoLink: 'https://res.cloudinary.com/dguer2ngx/video/upload/v1762306610/Videos/04.11.2025_08.10.46_REC_hcgudr.mp4'
     }
   ];
 
@@ -35,7 +45,7 @@ const PersonalProjects = () => {
                 <div className="project-links">
                   <a href={project.demoLink} className="btn-outline">View Live Site</a>
                   <a href={project.githubLink} className="btn-outline">GitHub</a>
-                  <a href={project.videoLink} className="btn-outline">Demo Video</a>
+                  {/* <a href={project.videoLink} className="btn-outline">Demo Video</a> */}
                 </div>
               </div>
             </div>
