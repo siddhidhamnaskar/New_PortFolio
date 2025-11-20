@@ -19,7 +19,7 @@ const ProjectsSection = () => {
      {
       id: 2,
       title: 'CareTest',
-      description: 'Onnline testing platform designed to support children with disabilities. The website provides simple, visually clear tests that help kids practice recognition, understanding, and basic cognitive skills.Its clean layout, large buttons, and distraction-free interface make it easy for children to attempt questions independently or with minimal guidance.',
+      description: 'Online testing platform designed to support children with disabilities. The website provides simple, visually clear tests that help kids practice recognition, understanding, and basic cognitive skills.Its clean layout, large buttons, and distraction-free interface make it easy for children to attempt questions independently or with minimal guidance.',
       image: 'https://res.cloudinary.com/dguer2ngx/image/upload/v1763664794/Images/20.11.2025_23.02.09_REC_hxsrf3.png',
       tech: ['Next.js', 'Typescript', 'Tailwind Css', 'MySQL', 'Prisma', 'Google Auth', 'Cloudinary', 'Git'],
       demoLink: 'http://snackboss-iot.in:3002/',
@@ -49,7 +49,7 @@ const ProjectsSection = () => {
           {projects.map(project => (
             <div key={project.id} className="project-card">
               <div className="project-image">
-                <img src={project.image} alt={project.title} className="project-screenshot" />
+                <video poster={project.image} src={project.videoLink} controls className="project-screenshot" />
                 <div className="project-overlay">
                   <div className="project-icon">
                     {project.overlayIcon}
