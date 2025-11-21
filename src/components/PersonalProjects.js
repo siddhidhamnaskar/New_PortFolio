@@ -32,7 +32,9 @@ const PersonalProjects = () => {
           {personalProjects.map(project => (
             <div key={project.id} className="project-card">
               <div className="project-image">
+                <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
                 <img src={project.image} alt={project.title} className="project-screenshot" />
+                </a>
               </div>
               <div className="project-content">
                 <h3>{project.title}</h3>

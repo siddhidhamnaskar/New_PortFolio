@@ -48,14 +48,16 @@ const ProjectsSection = () => {
           {projects.map(project => (
             <div key={project.id} className="project-card">
               <div className="project-image">
+                <a href={project.videoLink} target="_blank" rel="noopener noreferrer">
                 <video
                   poster={project.image}
                   src={project.videoLink}
-                  controls
+                  
                   autoPlay
                   muted
                   className="project-screenshot"
                 />
+                </a>
                 {/* <div className="project-overlay">
                   <div className="project-icon">
                     {project.overlayIcon}
