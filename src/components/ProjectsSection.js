@@ -1,6 +1,5 @@
-import React from 'react';
-import deviceDashboard from '../assets/device-dashboard.png';
-import elderCareDashboard from '../assets/elder-care-dashboard.png';
+import React, { useEffect, useRef } from 'react';
+
 
 const ProjectsSection = () => {
   const projects = [
@@ -49,13 +48,20 @@ const ProjectsSection = () => {
           {projects.map(project => (
             <div key={project.id} className="project-card">
               <div className="project-image">
-                <video poster={project.image} src={project.videoLink} controls className="project-screenshot" />
-                <div className="project-overlay">
+                <video
+                  poster={project.image}
+                  src={project.videoLink}
+                  controls
+                  autoPlay
+                  muted
+                  className="project-screenshot"
+                />
+                {/* <div className="project-overlay">
                   <div className="project-icon">
                     {project.overlayIcon}
                   </div>
                   <h4>{project.overlayTitle}</h4>
-                </div>
+                </div> */}
               </div>
               <div className="project-content">
                 <h3>{project.title}</h3>
