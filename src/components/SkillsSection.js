@@ -4,11 +4,11 @@ const SkillsSection = () => {
   const skillCategories = [
     {
       title: 'Frontend',
-      skills: ['React', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS']
+      skills: ['React', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS','Next.js','React Native']
     },
     {
       title: 'Backend',
-      skills: ['Node.js', 'Express.js', 'REST APIs', 'WebSocket', 'JWT']
+      skills: ['Node.js', 'Express.js', 'REST APIs', 'WebSocket', 'JWT','Prisma']
     },
     {
       title: 'Database',
@@ -16,7 +16,7 @@ const SkillsSection = () => {
     },
     {
       title: 'Tools & DevOps',
-      skills: ['Git', 'GitHub', 'Postman', 'Firebase', 'Netlify', 'Vercel']
+      skills: ['Git', 'GitHub', 'Postman', 'Firebase', 'Netlify', 'Vercel','Digital Ocean']
     },
     {
       title: 'Development',
